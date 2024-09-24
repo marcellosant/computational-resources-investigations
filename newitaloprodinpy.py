@@ -1,31 +1,33 @@
-from math import factorial
-import pandas as pd
+#Algo (n)
+#1 se n = 0
+#2 devolva 1
+#3 x := Algo (n−1) + n + 1
+#4 devolva x
 
-# Valor da frequência que irá ser utilizado
-VALOR_FREQUÊNCIA = 10 ** 9
+def algo(n):
+    if n == 0:
+        return 1
+    x = algo(n-1)+n+1
+    return x
 
-def coluna_um():
-    return [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+print(algo(3))
+#Algo (n)
+#1 se n = 0
+#2 devolva 0
+#3 x := Algo (n−1) + 2n − 1
+#4 devolva x     
 
-def coluna_dois(numeradores, denominadores):
-    return [numerador / denominador for numerador, denominador in zip(numeradores, denominadores)]
+def algoamais(n):
+    if n == 0:
+        return 0
+    x = algoamais(n-1)+2*n - 1
+    return x
 
-def coluna_três(número_cidades):
-    return [factorial(número - 1) for número in número_cidades]
+print(algoamais(2))    
 
-def coluna_quatro(número_cidades):
-    return [factorial(número - 1) / (VALOR_FREQUÊNCIA / (número - 1)) for número in número_cidades]
-
-# Criar o DataFrame
-dados = {
-    'n': coluna_um(),
-    'Rotas/s': coluna_dois(coluna_três(coluna_um()), coluna_quatro(coluna_um())),
-    '(n-1)! = R(n) = Combinações': coluna_três(coluna_um()),
-    'Tempo de Execução = TE = R(n) / (Rotas/s)': coluna_quatro(coluna_um())
-}
-
-# Criar o DataFrame do Pandas
-df = pd.DataFrame(dados)
-
-# Exibir o DataFrame
-print(df)
+def soma_dir_esq(k,n,a):
+    if k > n:
+        s = 0
+    else: 
+        s= a[k] + soma_dir_esq(k+1,n,a)
+        return s     

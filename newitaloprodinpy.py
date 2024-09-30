@@ -23,7 +23,7 @@ def algoamais(n):
     x = algoamais(n-1)+2*n - 1
     return x
 
-print(algoamais(2))    
+#print(algoamais(2))    
 
 def soma_dir_esq(k,n,a):
     if k > n:
@@ -31,3 +31,42 @@ def soma_dir_esq(k,n,a):
     else: 
         s= a[k] + soma_dir_esq(k+1,n,a)
         return s     
+
+
+        
+        
+def decide_i(A,n,x):
+  i= 1
+  A = list(range(1, n + 1)) 
+
+  while i<=n and A[i] != x :
+    i = i+1
+  if i > n: return 'NAO'
+  else: return 'SIM'
+
+def decide_r(A,n,x):
+  A = list(range(1, n + 1)) 
+
+  if n==0:
+    return "Não"   
+  if A[n]==x:
+    return "Sim"
+  else: return  decide_r(A,n-1,x) 
+A=[]
+print(decide_i(A,10,10))
+
+
+    
+def f(n):
+  if n == 0:
+        return 10
+    
+  return f(n - 1) + n + 1
+
+print(f(1000))
+
+
+
+  
+   
+  
